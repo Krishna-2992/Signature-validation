@@ -1,5 +1,85 @@
-export const contractAddress = "0xbd6bd6093340114d580a335139307caf6977945e"
+export const contractAddress = "0x80247B6B359392458d1D8bf7A39E71EC834ceBD3"
 export const contractABI = [
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_message",
+				"type": "string"
+			},
+			{
+				"internalType": "bytes",
+				"name": "_sig",
+				"type": "bytes"
+			}
+		],
+		"name": "getSigner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "pure",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_id",
+				"type": "uint256"
+			}
+		],
+		"name": "getTransactionById",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "txId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "receiver",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "cid",
+						"type": "string"
+					},
+					{
+						"internalType": "bytes",
+						"name": "signature",
+						"type": "bytes"
+					},
+					{
+						"internalType": "string",
+						"name": "message",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct SignatureVerification.Signature",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
 	{
 		"inputs": [
 			{
@@ -22,6 +102,93 @@ export const contractABI = [
 			}
 		],
 		"stateMutability": "pure",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_receiverAddress",
+				"type": "address"
+			}
+		],
+		"name": "retrieveRecieverSignaturesTxIds",
+		"outputs": [
+			{
+				"internalType": "uint256[]",
+				"name": "",
+				"type": "uint256[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_senderAddress",
+				"type": "address"
+			}
+		],
+		"name": "retrieveSenderSignaturesTxIds",
+		"outputs": [
+			{
+				"internalType": "uint256[]",
+				"name": "",
+				"type": "uint256[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "signatures",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "txId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "receiver",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "cid",
+				"type": "string"
+			},
+			{
+				"internalType": "bytes",
+				"name": "signature",
+				"type": "bytes"
+			},
+			{
+				"internalType": "string",
+				"name": "message",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "timestamp",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -57,6 +224,45 @@ export const contractABI = [
 		"inputs": [
 			{
 				"internalType": "address",
+				"name": "_sender",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "_receiver",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "_cid",
+				"type": "string"
+			},
+			{
+				"internalType": "bytes",
+				"name": "_sig",
+				"type": "bytes"
+			},
+			{
+				"internalType": "string",
+				"name": "_message",
+				"type": "string"
+			}
+		],
+		"name": "storeSignature",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "txId",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
 				"name": "_signer",
 				"type": "address"
 			},
@@ -83,36 +289,150 @@ export const contractABI = [
 		"type": "function"
 	}
 ]
-
-// export const contractAddress = "0x6eEecf3b941ebDeb34b26b0eF4DD736d60062829"
+// export const contractAddress = "0x77F48758393BC7c432456514fAdA422Cb7136A0C"
 // export const contractABI = [
 // 	{
-// 		"inputs": [],
-// 		"name": "fund",
-// 		"outputs": [],
-// 		"stateMutability": "payable",
-// 		"type": "function"
-// 	},
-// 	{
-// 		"inputs": [],
-// 		"stateMutability": "nonpayable",
-// 		"type": "constructor"
-// 	},
-// 	{
-// 		"inputs": [],
-// 		"name": "withdraw",
-// 		"outputs": [],
-// 		"stateMutability": "nonpayable",
-// 		"type": "function"
-// 	},
-// 	{
-// 		"inputs": [],
-// 		"name": "getBalance",
+// 		"inputs": [
+// 			{
+// 				"internalType": "address",
+// 				"name": "_sender",
+// 				"type": "address"
+// 			},
+// 			{
+// 				"internalType": "address",
+// 				"name": "_receiver",
+// 				"type": "address"
+// 			},
+// 			{
+// 				"internalType": "bytes",
+// 				"name": "_sig",
+// 				"type": "bytes"
+// 			},
+// 			{
+// 				"internalType": "string",
+// 				"name": "_message",
+// 				"type": "string"
+// 			}
+// 		],
+// 		"name": "storeSignature",
 // 		"outputs": [
 // 			{
 // 				"internalType": "uint256",
-// 				"name": "",
+// 				"name": "txId",
 // 				"type": "uint256"
+// 			}
+// 		],
+// 		"stateMutability": "nonpayable",
+// 		"type": "function"
+// 	},
+// 	{
+// 		"inputs": [
+// 			{
+// 				"internalType": "string",
+// 				"name": "_message",
+// 				"type": "string"
+// 			},
+// 			{
+// 				"internalType": "bytes",
+// 				"name": "_sig",
+// 				"type": "bytes"
+// 			}
+// 		],
+// 		"name": "getSigner",
+// 		"outputs": [
+// 			{
+// 				"internalType": "address",
+// 				"name": "",
+// 				"type": "address"
+// 			}
+// 		],
+// 		"stateMutability": "pure",
+// 		"type": "function"
+// 	},
+// 	{
+// 		"inputs": [
+// 			{
+// 				"internalType": "uint256",
+// 				"name": "_id",
+// 				"type": "uint256"
+// 			}
+// 		],
+// 		"name": "getTransactionById",
+// 		"outputs": [
+// 			{
+// 				"components": [
+// 					{
+// 						"internalType": "address",
+// 						"name": "sender",
+// 						"type": "address"
+// 					},
+// 					{
+// 						"internalType": "address",
+// 						"name": "receiver",
+// 						"type": "address"
+// 					},
+// 					{
+// 						"internalType": "bytes",
+// 						"name": "signature",
+// 						"type": "bytes"
+// 					},
+// 					{
+// 						"internalType": "string",
+// 						"name": "message",
+// 						"type": "string"
+// 					},
+// 					{
+// 						"internalType": "uint256",
+// 						"name": "timestamp",
+// 						"type": "uint256"
+// 					}
+// 				],
+// 				"internalType": "struct SignatureVerification.Signature",
+// 				"name": "",
+// 				"type": "tuple"
+// 			}
+// 		],
+// 		"stateMutability": "view",
+// 		"type": "function"
+// 	},
+// 	{
+// 		"inputs": [
+// 			{
+// 				"internalType": "bytes32",
+// 				"name": "_ethSignedMessageHash",
+// 				"type": "bytes32"
+// 			},
+// 			{
+// 				"internalType": "bytes",
+// 				"name": "_sig",
+// 				"type": "bytes"
+// 			}
+// 		],
+// 		"name": "recover",
+// 		"outputs": [
+// 			{
+// 				"internalType": "address",
+// 				"name": "",
+// 				"type": "address"
+// 			}
+// 		],
+// 		"stateMutability": "pure",
+// 		"type": "function"
+// 	},
+// 	{
+// 		"inputs": [
+// 			{
+// 				"internalType": "address",
+// 				"name": "_receiverAddress",
+// 				"type": "address"
+// 			}
+// 		],
+// 		"name": "retrieveRecieverSignaturesTxIds",
+// 		"outputs": [
+// 			{
+// 				"internalType": "uint256[]",
+// 				"name": "",
+// 				"type": "uint256[]"
 // 			}
 // 		],
 // 		"stateMutability": "view",
@@ -122,15 +442,54 @@ export const contractABI = [
 // 		"inputs": [
 // 			{
 // 				"internalType": "address",
-// 				"name": "funder",
+// 				"name": "_senderAddress",
 // 				"type": "address"
 // 			}
 // 		],
-// 		"name": "getFundedAmount",
+// 		"name": "retrieveSenderSignaturesTxIds",
 // 		"outputs": [
+// 			{
+// 				"internalType": "uint256[]",
+// 				"name": "",
+// 				"type": "uint256[]"
+// 			}
+// 		],
+// 		"stateMutability": "view",
+// 		"type": "function"
+// 	},
+// 	{
+// 		"inputs": [
 // 			{
 // 				"internalType": "uint256",
 // 				"name": "",
+// 				"type": "uint256"
+// 			}
+// 		],
+// 		"name": "signatures",
+// 		"outputs": [
+// 			{
+// 				"internalType": "address",
+// 				"name": "sender",
+// 				"type": "address"
+// 			},
+// 			{
+// 				"internalType": "address",
+// 				"name": "receiver",
+// 				"type": "address"
+// 			},
+// 			{
+// 				"internalType": "bytes",
+// 				"name": "signature",
+// 				"type": "bytes"
+// 			},
+// 			{
+// 				"internalType": "string",
+// 				"name": "message",
+// 				"type": "string"
+// 			},
+// 			{
+// 				"internalType": "uint256",
+// 				"name": "timestamp",
 // 				"type": "uint256"
 // 			}
 // 		],
@@ -138,42 +497,61 @@ export const contractABI = [
 // 		"type": "function"
 // 	},
 // 	{
-// 		"inputs": [],
-// 		"name": "getFunders",
-// 		"outputs": [
+// 		"inputs": [
 // 			{
-// 				"internalType": "address[]",
-// 				"name": "",
-// 				"type": "address[]"
+// 				"internalType": "bytes",
+// 				"name": "_sig",
+// 				"type": "bytes"
 // 			}
 // 		],
-// 		"stateMutability": "view",
+// 		"name": "split",
+// 		"outputs": [
+// 			{
+// 				"internalType": "bytes32",
+// 				"name": "r",
+// 				"type": "bytes32"
+// 			},
+// 			{
+// 				"internalType": "bytes32",
+// 				"name": "s",
+// 				"type": "bytes32"
+// 			},
+// 			{
+// 				"internalType": "uint8",
+// 				"name": "v",
+// 				"type": "uint8"
+// 			}
+// 		],
+// 		"stateMutability": "pure",
 // 		"type": "function"
 // 	},
 // 	{
-// 		"inputs": [],
-// 		"name": "getOwner",
-// 		"outputs": [
+// 		"inputs": [
 // 			{
 // 				"internalType": "address",
-// 				"name": "",
+// 				"name": "_signer",
 // 				"type": "address"
+// 			},
+// 			{
+// 				"internalType": "string",
+// 				"name": "_message",
+// 				"type": "string"
+// 			},
+// 			{
+// 				"internalType": "bytes",
+// 				"name": "_sig",
+// 				"type": "bytes"
 // 			}
 // 		],
-// 		"stateMutability": "view",
-// 		"type": "function"
-// 	},
-// 	{
-// 		"inputs": [],
-// 		"name": "i_owner",
+// 		"name": "verify",
 // 		"outputs": [
 // 			{
-// 				"internalType": "address",
+// 				"internalType": "bool",
 // 				"name": "",
-// 				"type": "address"
+// 				"type": "bool"
 // 			}
 // 		],
-// 		"stateMutability": "view",
+// 		"stateMutability": "pure",
 // 		"type": "function"
 // 	}
 // ]
